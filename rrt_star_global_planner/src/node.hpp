@@ -17,11 +17,26 @@ struct Node {
   float x;
   float y;
   int node_id;
+  int child_id{-1};
   int parent_id;
   float cost{0.0};
 
   Node() {}
 
+//    Node(Node &n) : x(n.x),
+//                                                                 y(n.y),
+//                                                                 node_id(n.node_id),
+//                                                                 child_id(n.child_id),
+//                                                                 parent_id(n.parent_id),
+//                                                                 cost(n.cost){}
+ void operator =(const Node &n){
+          x=n.x;
+          y=n.y;
+          node_id=n.node_id;
+          child_id = n.child_id;
+          parent_id = n.parent_id;
+          cost = n.cost;
+  }
   Node(float px, float py, int node_index, int parent_index) : x(px),
                                                        y(py),
                                                        node_id(node_index),

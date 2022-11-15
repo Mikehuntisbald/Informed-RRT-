@@ -29,7 +29,7 @@ class CollisionDetector {
   void worldToMap(float wx, float wy, int& mx, int& my);  // NOLINT
 
   costmap_2d::Costmap2D* costmap_{nullptr};
-  double resolution_{0.1};
+  double resolution_{0.05};
   double origin_x_{0.0};
   double origin_y_{0.0};
 };

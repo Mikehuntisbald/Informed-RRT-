@@ -40,7 +40,7 @@ class RRTStar {
    * @param path list of planar positions (x, y)
    * @return true if a path is found, false otherwise
    */
-  bool pathPlanning(std::list<std::pair<float, float>> &path);  // NOLINT
+  bool pathPlanning(std::list<std::pair<float, float>> &path, double &cost);  // NOLINT
 
   /**
    * @brief compute random points
@@ -101,6 +101,7 @@ class RRTStar {
     std::pair<float, float> start_point_;
     std::pair<float, float> goal_point_;
     costmap_2d::Costmap2D* costmap_{nullptr};
+
     std::vector<Node> nodes_;
     RandomDoubleGenerator random_double_;
     //std::uniform_real_distribution<> dist_unit_ = std::uniform_real_distribution<>(0.0, 1.0);
@@ -117,6 +118,7 @@ class RRTStar {
     Eigen::Matrix3d rotation_matrix_;
     bool goal_reached_{false};
     std::map<int, Node> prepath;
+    std::map<int, Node> tmppath;
     std::map<int, Node>::iterator it;
     float c;
     Node goal_node_;
